@@ -49,6 +49,7 @@ body{
 }
 
 .btn{
+    cursor: pointer;
     text-align: center;
     background-color: green;
     width: 10vw;
