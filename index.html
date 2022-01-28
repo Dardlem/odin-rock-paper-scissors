@@ -19,7 +19,11 @@
         </div>
     </div>
 
-    <input type="button" value="Reroll" id="reroll" onclick="reroll()">
+    <div class="playerInput horizontal-flex">
+        <div class="btn rock" onclick="playerBtnRock()">🪨</div>
+        <div class="btn paper" onclick="playerBtnPaper()">📄</div>
+        <div class="btn scissors" onclick="playerBtnScissors()">✂️</div>
+    </div>
 
     <div class="horizontal-flex">
         <div id="computerRollHistory" class="vertical-flex">rollhistory</div>

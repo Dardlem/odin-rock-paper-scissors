@@ -33,6 +33,11 @@ body{
     text-align: center;
 }
 
+#computerRollHistory,
+#playerRollHistory{
+    font-size: 2vw;
+}
+
 .vertical-flex{
     display: flex;
     flex-direction: column;
@@ -41,4 +46,17 @@ body{
 .horizontal-flex{
     display: flex;
     gap: 2vw;
+}
+
+.btn{
+    text-align: center;
+    background-color: green;
+    width: 10vw;
+    height: auto;
+    border-radius: 1vw;
+}
+
+.btn:hover{
+    transition: 1s;
+    background-color: hotpink;
 }

@@ -18,18 +18,6 @@ function computerPlay(a){
     }
 }
 
-function playerPlay(a){
-    if(a == 0){
-        return "🪨";
-    }
-    else if(a == 1){
-        return "📄";
-    }
-    else if(a == 2){
-        return "✂️";
-    }
-}
-
 function rollHistory(array, string){
     return array.push(string);
 }
@@ -54,10 +42,25 @@ function getRandomInt(max){
     return mRand;
 }
 
-function reroll(){
-    handleHistory(playerRollHistory, pRollHistory, pPlayText);
+function handlePcRound(){
     handleHistory(computerRollHistory, cRollHistory, cPlayText);
-
     cPlayText.innerHTML = computerPlay(getRandomInt(3));
-    pPlayText.innerHTML = computerPlay(getRandomInt(3));
+}
+
+function playerBtnRock(){
+    handleHistory(playerRollHistory, pRollHistory, pPlayText);
+    pPlayText.innerHTML = computerPlay(0);
+    handlePcRound();
+}
+
+function playerBtnPaper(){
+    handleHistory(playerRollHistory, pRollHistory, pPlayText);
+    pPlayText.innerHTML = computerPlay(1);
+    handlePcRound();
+}
+
+function playerBtnScissors(){
+    handleHistory(playerRollHistory, pRollHistory, pPlayText);
+    pPlayText.innerHTML = computerPlay(2);
+    handlePcRound();
 }
