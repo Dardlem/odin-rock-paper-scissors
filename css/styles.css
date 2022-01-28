@@ -15,7 +15,11 @@ body{
     justify-content: center;
     align-items: center;
 
-    gap: 1vw;
+    gap: 2vw;
+}
+
+#reroll{
+    padding: 1vw;
 }
 
 .players{
