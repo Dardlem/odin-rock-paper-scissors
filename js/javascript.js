@@ -35,7 +35,11 @@ function rollHistory(array, string){
 }
 
 function updateRollHistory(array, htmlId){
-    return htmlId.innerHTML = array;
+    htmlId.innerHTML = null;
+    array.forEach(element => {
+        htmlId.innerHTML += element + "<br>";
+    });
+    return;
 }
 
 function handleHistory(array, history, source){
