@@ -1,10 +1,10 @@
-const cPlayText = document.getElementById("cPlayText");
-const pPlayText = document.getElementById("pPlayText");
-const pRollHistory = document.getElementById("playerRollHistory");
-const cRollHistory = document.getElementById("computerRollHistory");
+const computerPlayDisplay = document.getElementById("cPlayText");
+const playerPlayDisplay = document.getElementById("pPlayText");
+const playerRollHistoryDisplay = document.getElementById("playerRollHistory");
+const computerRollHistoryDisplay = document.getElementById("computerRollHistory");
 
-let playerRollHistory = [];
-let computerRollHistory = [];
+let playerRollHistoryData = [];
+let computerRollHistoryData = [];
 
 function computerPlay(a){
     if(a == 0){
@@ -18,22 +18,20 @@ function computerPlay(a){
     }
 }
 
-function rollHistory(array, string){
+function updateRollHistory(array, string){
     return array.push(string);
 }
 
-function updateRollHistory(array, htmlId){
+function displayRollHistory(array, htmlId){
     htmlId.innerHTML = null;
     array.forEach(element => {
         htmlId.innerHTML += element + "<br>";
     });
-    return;
 }
 
 function handleHistory(array, history, source){
-    rollHistory(array, String(source.innerHTML));
-    updateRollHistory(array, history);
-    return;
+    updateRollHistory(array, String(source.innerHTML));
+    displayRollHistory(array, history);
 }
 
 function getRandomInt(max){
@@ -42,25 +40,25 @@ function getRandomInt(max){
     return mRand;
 }
 
-function handlePcRound(){
-    handleHistory(computerRollHistory, cRollHistory, cPlayText);
-    cPlayText.innerHTML = computerPlay(getRandomInt(3));
+function handleComputerRound(){
+    handleHistory(computerRollHistoryData, computerRollHistoryDisplay, computerPlayDisplay);
+    computerPlayDisplay.innerHTML = computerPlay(getRandomInt(3));
 }
 
 function playerBtnRock(){
-    handleHistory(playerRollHistory, pRollHistory, pPlayText);
-    pPlayText.innerHTML = computerPlay(0);
-    handlePcRound();
+    handleHistory(playerRollHistoryData, playerRollHistoryDisplay, playerPlayDisplay);
+    playerPlayDisplay.innerHTML = computerPlay(0);
+    handleComputerRound();
 }
 
 function playerBtnPaper(){
-    handleHistory(playerRollHistory, pRollHistory, pPlayText);
-    pPlayText.innerHTML = computerPlay(1);
-    handlePcRound();
+    handleHistory(playerRollHistoryData, playerRollHistoryDisplay, playerPlayDisplay);
+    playerPlayDisplay.innerHTML = computerPlay(1);
+    handleComputerRound();
 }
 
 function playerBtnScissors(){
-    handleHistory(playerRollHistory, pRollHistory, pPlayText);
-    pPlayText.innerHTML = computerPlay(2);
-    handlePcRound();
+    handleHistory(playerRollHistoryData, playerRollHistoryDisplay, playerPlayDisplay);
+    playerPlayDisplay.innerHTML = computerPlay(2);
+    handleComputerRound();
 }
