@@ -22,8 +22,8 @@ function playHand(a){
 }
 
 function playRound(playerChoice){
-    handleHistory(playerRollHistoryData, playerRollHistoryDisplay, playerPlayDisplay);
     playerPlayDisplay.innerHTML = playHand(playerChoice);
+    handleHistory(playerRollHistoryData, playerRollHistoryDisplay, playerPlayDisplay);
     handleComputerRound();
 }
 
@@ -50,8 +50,8 @@ function getRandomInt(max){
 }
 
 function handleComputerRound(){
-    handleHistory(computerRollHistoryData, computerRollHistoryDisplay, computerPlayDisplay);
     computerPlayDisplay.innerHTML = playHand(getRandomInt(3));
+    handleHistory(computerRollHistoryData, computerRollHistoryDisplay, computerPlayDisplay);
 }
 
 function playerBtnRock(){
