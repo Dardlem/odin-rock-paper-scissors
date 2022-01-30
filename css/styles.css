@@ -59,6 +59,11 @@ body{
     justify-content: center;
 }
 
+.justify-between{
+    justify-content: space-between;
+    width: 100%;
+}
+
 .btn{
     cursor: pointer;
     background-color: green;
@@ -79,6 +84,11 @@ body{
     font-size: 2vw;
 }
 
-:disabled{
+.btn:disabled{
     background-color: red;
+}
+
+.btn:disabled:hover{
+    background-color: red;
+    border-color: royalblue;
 }
