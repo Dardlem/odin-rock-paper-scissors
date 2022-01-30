@@ -69,6 +69,13 @@ function restart(value){
     handleHistory(computerRollHistoryData, computerRollHistoryDisplay, computerPlayDisplay);
     playerPoints = 0;
     computerPoints = 0;
+
+    let childNodes = node.children;
+    for(let i = 0; childNodes.length > i; i++){
+        childNodes[i].disabled = false;
+    }
+
+    displayPoints();
 }
 
 function checkWinCondition(){
