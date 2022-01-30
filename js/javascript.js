@@ -6,7 +6,10 @@ const computerRollHistoryDisplay = document.getElementById("computerRollHistory"
 let playerRollHistoryData = [];
 let computerRollHistoryData = [];
 
-function computerPlay(a){
+let playerPoints = 0;
+let computerPoints = 0;
+
+function playHand(a){
     if(a == 0){
         return "🪨";
     }
@@ -16,6 +19,12 @@ function computerPlay(a){
     else if(a == 2){
         return "✂️";
     }
+}
+
+function playRound(playerChoice){
+    handleHistory(playerRollHistoryData, playerRollHistoryDisplay, playerPlayDisplay);
+    playerPlayDisplay.innerHTML = playHand(playerChoice);
+    handleComputerRound();
 }
 
 function updateRollHistory(array, string){
@@ -42,23 +51,17 @@ function getRandomInt(max){
 
 function handleComputerRound(){
     handleHistory(computerRollHistoryData, computerRollHistoryDisplay, computerPlayDisplay);
-    computerPlayDisplay.innerHTML = computerPlay(getRandomInt(3));
+    computerPlayDisplay.innerHTML = playHand(getRandomInt(3));
 }
 
 function playerBtnRock(){
-    handleHistory(playerRollHistoryData, playerRollHistoryDisplay, playerPlayDisplay);
-    playerPlayDisplay.innerHTML = computerPlay(0);
-    handleComputerRound();
+    playRound(0);
 }
 
 function playerBtnPaper(){
-    handleHistory(playerRollHistoryData, playerRollHistoryDisplay, playerPlayDisplay);
-    playerPlayDisplay.innerHTML = computerPlay(1);
-    handleComputerRound();
+    playRound(1);
 }
 
 function playerBtnScissors(){
-    handleHistory(playerRollHistoryData, playerRollHistoryDisplay, playerPlayDisplay);
-    playerPlayDisplay.innerHTML = computerPlay(2);
-    handleComputerRound();
+    playRound(2);
 }
