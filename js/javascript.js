@@ -55,10 +55,14 @@ function restart(value){
         case 0:
             playerRollHistoryData.push("✔️");
             computerRollHistoryData.push("❌");
+            playerPlayDisplay.innerHTML = "✔️";
+            computerPlayDisplay.innerHTML = "❌";
             break;
         case 1:
             computerRollHistoryData.push("✔️");
             playerRollHistoryData.push("❌");
+            playerPlayDisplay.innerHTML = "❌";
+            computerPlayDisplay.innerHTML = "✔️";
             break;
         case 2:
             break;
@@ -70,20 +74,29 @@ function restart(value){
     playerPoints = 0;
     computerPoints = 0;
 
-    let childNodes = node.children;
-    for(let i = 0; childNodes.length > i; i++){
-        childNodes[i].disabled = false;
-    }
-
+    handleNodes(false);
     displayPoints();
+}
+
+function handleNodes(bool){
+    let childNodes = node.children;
+    switch(bool){
+        case true:
+            for(let i = 0; childNodes.length > i; i++){
+                childNodes[i].disabled = true;
+            }
+            break;
+        case false:
+            for(let i = 0; childNodes.length > i; i++){
+                childNodes[i].disabled = false;
+            }
+            break;
+    }
 }
 
 function checkWinCondition(){
     if(playerPoints >= 5 || computerPoints >=5){
-        let childNodes = node.children;
-        for(let i = 0; childNodes.length > i; i++){
-            childNodes[i].disabled = true;
-        }
+        handleNodes(true);
     }
 }
 
