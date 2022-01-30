@@ -4,6 +4,7 @@ const playerRollHistoryDisplay = document.getElementById("playerRollHistory");
 const computerRollHistoryDisplay = document.getElementById("computerRollHistory");
 const playerPointsDisplay = document.getElementById("points player");
 const computerPointsDisplay = document.getElementById("points computer");
+const node = document.getElementById("playerInput");
 
 let playerRollHistoryData = [];
 let computerRollHistoryData = [];
@@ -72,21 +73,21 @@ function restart(value){
 
 function checkWinCondition(){
     if(playerPoints >= 5 || computerPoints >=5){
-        let elements = document.getElementById("playerInput").getElementsByClassName("*");
-        for (let i = 0; elements.length; i++){
-            elements[i].disabled = true;
+        let childNodes = node.children;
+        for(let i = 0; childNodes.length > i; i++){
+            childNodes[i].disabled = true;
         }
     }
 }
 
 function playRound(playerChoice){
-    checkWinCondition();
     let playerDecision = playHand(playerChoice);
     let computerDecision = handleComputerRound();
     playerPlayDisplay.innerHTML = playerDecision;
     handleHistory(playerRollHistoryData, playerRollHistoryDisplay, playerPlayDisplay);
     calcPoins(playerDecision, computerDecision);
     displayPoints();
+    checkWinCondition();
 }
 
 function updateRollHistory(array, string){
