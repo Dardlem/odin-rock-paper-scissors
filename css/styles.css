@@ -42,7 +42,10 @@ body{
 .vertical-flex{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 0;
+    gap: 1vw;
 }
 
 .vertical-flex p{
@@ -68,4 +71,14 @@ body{
 .btn:hover{
     transition: 1s;
     background-color: hotpink;
+}
+
+.btn.restart{
+    width: 100%;
+    height: 5vh;
+    font-size: 2vw;
+}
+
+:disabled{
+    background-color: red;
 }
