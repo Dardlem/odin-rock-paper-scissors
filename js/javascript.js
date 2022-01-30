@@ -25,7 +25,7 @@ function calcPoins(valueOne, valueTwo){
         case valueOne === ruleList.get(valueTwo):
             computerPoints++;
             break;
-        default: 
+        default:
             break;
     }
 }
@@ -47,7 +47,7 @@ function playHand(a){
     }
 }
 
-function restart(value?){
+function restart(value){
     playerRollHistoryData = [];
     computerRollHistoryData = [];
     switch(value){
@@ -59,6 +59,8 @@ function restart(value?){
             computerRollHistoryData.push("✔️");
             playerRollHistoryData.push("❌");
             break;
+        case 2:
+            break;
         default:
             break;
     }
@@ -69,12 +71,12 @@ function restart(value?){
 }
 
 function checkWinCondition(){
-    if(playerPoints >= 5){
-        restart(0);
-    } else if(computerPoints >=5){
-        restart(1);
+    if(playerPoints >= 5 || computerPoints >=5){
+        let elements = document.getElementById("playerInput").getElementsByClassName("*");
+        for (let i = 0; elements.length; i++){
+            elements[i].disabled = true;
+        }
     }
-    else restart();
 }
 
 function playRound(playerChoice){
@@ -125,4 +127,8 @@ function playerBtnPaper(){
 
 function playerBtnScissors(){
     playRound(2);
+}
+
+function restartBtn(){
+    restart(2);
 }
