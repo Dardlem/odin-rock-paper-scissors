@@ -25,7 +25,8 @@ function calcPoins(valueOne, valueTwo){
         case valueOne === ruleList.get(valueTwo):
             computerPoints++;
             break;
-        default: console.log("calcPoints defaulted"); break;
+        default: 
+            break;
     }
 }
 
@@ -63,8 +64,6 @@ function restart(value?){
     }
     handleHistory(playerRollHistoryData, playerRollHistoryDisplay, playerPlayDisplay);
     handleHistory(computerRollHistoryData, computerRollHistoryDisplay, computerPlayDisplay);
-    console.log(playerRollHistoryData);
-    console.log(playerRollHistoryDisplay);
     playerPoints = 0;
     computerPoints = 0;
 }
@@ -106,7 +105,6 @@ function handleHistory(array, history, source){
 
 function getRandomInt(max){
     let mRand = Math.floor(Math.random() * max);
-    console.log(mRand);
     return mRand;
 }
 
