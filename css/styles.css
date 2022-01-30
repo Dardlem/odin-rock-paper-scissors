@@ -42,11 +42,18 @@ body{
 .vertical-flex{
     display: flex;
     flex-direction: column;
+    margin: 0;
+}
+
+.vertical-flex p{
+    font-size: 0.5em;
+    margin: 0;
 }
 
 .horizontal-flex{
     display: flex;
     gap: 2vw;
+    justify-content: center;
 }
 
 .btn{
