@@ -46,7 +46,34 @@ function playHand(a){
     }
 }
 
+function restart(value){
+    playerRollHistoryData = [];
+    computerRollHistoryData = [];
+    switch(value){
+        case 0:
+            playerRollHistoryData.push("✔️");
+            computerRollHistoryData.push("❌");
+            break;
+        case 1:
+            computerRollHistoryData.push("✔️");
+            playerRollHistoryData.push("❌");
+    }
+    updateRollHistory(playerRollHistoryData, playerRollHistoryDisplay);
+    updateRollHistory(computerRollHistoryData, computerRollHistoryDisplay);
+    playerPoints = 0;
+    computerPoints = 0;
+}
+
+function checkWinCondition(){
+    if(playerPoints >= 5){
+        restart(0);
+    } else if(computerPoints >=5){
+        restart(1);
+    }
+}
+
 function playRound(playerChoice){
+    checkWinCondition();
     let playerDecision = playHand(playerChoice);
     let computerDecision = handleComputerRound();
     playerPlayDisplay.innerHTML = playerDecision;
