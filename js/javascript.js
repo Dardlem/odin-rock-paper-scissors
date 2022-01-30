@@ -46,7 +46,7 @@ function playHand(a){
     }
 }
 
-function restart(value){
+function restart(value?){
     playerRollHistoryData = [];
     computerRollHistoryData = [];
     switch(value){
@@ -57,6 +57,9 @@ function restart(value){
         case 1:
             computerRollHistoryData.push("✔️");
             playerRollHistoryData.push("❌");
+            break;
+        default:
+            break;
     }
     handleHistory(playerRollHistoryData, playerRollHistoryDisplay, playerPlayDisplay);
     handleHistory(computerRollHistoryData, computerRollHistoryDisplay, computerPlayDisplay);
@@ -72,6 +75,7 @@ function checkWinCondition(){
     } else if(computerPoints >=5){
         restart(1);
     }
+    else restart();
 }
 
 function playRound(playerChoice){
