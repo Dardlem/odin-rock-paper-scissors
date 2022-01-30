@@ -48,27 +48,10 @@ function playHand(a){
     }
 }
 
-function restart(value){
+function restart(){
     playerRollHistoryData = [];
     computerRollHistoryData = [];
-    switch(value){
-        case 0:
-            playerRollHistoryData.push("✔️");
-            computerRollHistoryData.push("❌");
-            playerPlayDisplay.innerHTML = "✔️";
-            computerPlayDisplay.innerHTML = "❌";
-            break;
-        case 1:
-            computerRollHistoryData.push("✔️");
-            playerRollHistoryData.push("❌");
-            playerPlayDisplay.innerHTML = "❌";
-            computerPlayDisplay.innerHTML = "✔️";
-            break;
-        case 2:
-            break;
-        default:
-            break;
-    }
+
     handleHistory(playerRollHistoryData, playerRollHistoryDisplay, playerPlayDisplay);
     handleHistory(computerRollHistoryData, computerRollHistoryDisplay, computerPlayDisplay);
     playerPoints = 0;
@@ -94,9 +77,21 @@ function handleNodes(bool){
     }
 }
 
+function displayWin(){
+    if(playerPoints >= 5){
+        playerPlayDisplay.innerHTML = "✔️";
+        computerPlayDisplay.innerHTML = "❌";
+    }
+    if(computerPoints >= 5){
+        playerPlayDisplay.innerHTML = "✔️";
+        computerPlayDisplay.innerHTML ="❌";
+    }
+}
+
 function checkWinCondition(){
     if(playerPoints >= 5 || computerPoints >=5){
         handleNodes(true);
+        displayWin();
     }
 }
 
@@ -117,7 +112,7 @@ function updateRollHistory(array, string){
 function displayRollHistory(array, htmlId){
     htmlId.innerHTML = null;
     array.forEach(element => {
-        htmlId.innerHTML += element + "<br>";
+        htmlId.innerHTML += element;
     });
 }
 
@@ -151,5 +146,5 @@ function playerBtnScissors(){
 }
 
 function restartBtn(){
-    restart(2);
+    restart();
 }
