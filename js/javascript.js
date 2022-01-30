@@ -58,8 +58,10 @@ function restart(value){
             computerRollHistoryData.push("✔️");
             playerRollHistoryData.push("❌");
     }
-    updateRollHistory(playerRollHistoryData, playerRollHistoryDisplay);
-    updateRollHistory(computerRollHistoryData, computerRollHistoryDisplay);
+    handleHistory(playerRollHistoryData, playerRollHistoryDisplay, playerPlayDisplay);
+    handleHistory(computerRollHistoryData, computerRollHistoryDisplay, computerPlayDisplay);
+    console.log(playerRollHistoryData);
+    console.log(playerRollHistoryDisplay);
     playerPoints = 0;
     computerPoints = 0;
 }
